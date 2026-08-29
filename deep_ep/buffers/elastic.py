@@ -864,7 +864,8 @@ class ElasticBuffer:
             num_max_tokens_per_rank: the maximum number of tokens per rank. Inferred from constructor default
                 or `handle` if provided.
             expert_alignment: align the number of tokens received by each local expert to this variable.
-            num_sms: the number of SMs to use (0 for automatic via `get_theoretical_num_sms`).
+            num_sms: the number of SMs to use (0 for automatic: reuse the SM count from `handle` if provided,
+                otherwise via `get_theoretical_num_sms`).
             num_qps: the number of RDMA QPs to use (0 for automatic via `get_theoretical_num_qps`).
             previous_event: the event to wait before actually executing the kernel.
                 If set, `allocate_on_comm_stream` must also be `True`.
